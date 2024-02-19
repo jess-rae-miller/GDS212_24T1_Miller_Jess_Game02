@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3170e5d51bbdb9488b64e9587e8b59e, type: 3}
   m_Name: PlayerIdle
   m_EditorClassIdentifier: 
-  framesOfGap: 0
-  sprites: []
+  framesOfGap: 9
+  sprites:
+  - {fileID: 904722976, guid: 4ac796ccbd42ef34faba305f7b2b6b84, type: 3}
+  - {fileID: 2012902545, guid: 4ac796ccbd42ef34faba305f7b2b6b84, type: 3}
+  - {fileID: -647173585, guid: 4ac796ccbd42ef34faba305f7b2b6b84, type: 3}
+  loop: 1

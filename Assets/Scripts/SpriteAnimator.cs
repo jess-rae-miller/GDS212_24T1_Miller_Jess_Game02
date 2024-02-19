@@ -7,18 +7,33 @@ public class SpriteAnimator : MonoBehaviour
 {
     public SpriteRenderer mySpriteRenderer;
     public AnimationData baseAnimation;
+    Coroutine previousAnimation;
 
-    public IEnumerator PlayAnimation(AnimationData data)
+    public void PlayAnimation(AnimationData data)
     {
-        int spritesAmount = data.sprites.Length;
-        int i = 0; // Initialize i to 0
+        if (previousAnimation != null)
+        {
+            StopCoroutine(previousAnimation);
+        }
+        previousAnimation = StartCoroutine(PlayAnimationCoroutine(data));
+    }
+
+    public IEnumerator PlayAnimationCoroutine(AnimationData data)
+    {
+        if (data == null)
+            data = baseAnimation;
+
+            
+        int spritesAmount = data.sprites.Length, i = 0;
         float waitTime = data.framesOfGap * AnimationData.targetFrameTime;
-        Debug.Log(waitTime);
         while (i < spritesAmount)
         {
             mySpriteRenderer.sprite = data.sprites[i++];    // change sprite
             yield return new WaitForSeconds(waitTime);      // wait
+
             // check conditions
+            if (data.loop && i >= spritesAmount)
+                i = 0;
         }
         yield return null;
     }

@@ -8,5 +8,5 @@ public class AnimationData : ScriptableObject
     public static float targetFrameTime = 0.0167f;
     public int framesOfGap;
     public Sprite[] sprites;
-
+    public bool loop;
 }

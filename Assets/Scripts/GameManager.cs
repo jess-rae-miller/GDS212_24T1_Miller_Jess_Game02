@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-     static float moveSpeed = 3.5f, moveAccuracy = 0.15f;
+    static float moveSpeed = 3.5f, moveAccuracy = 0.15f;
     public static List<int> collectedItems = new List<int>();
     public AnimationData[] playerAnimations;
+    public RectTransform nameTag;
 
     public IEnumerator MoveToPoint(Transform myObject, Vector2 point)
     {
@@ -25,5 +28,12 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<ClickManager>().playerWalking = false;
         }
         yield return null;
+    }
+
+    public void UpdateNameTag(ItemData item)
+    {
+        nameTag.GetComponentInChildren<TextMeshProUGUI>().text = item.objectName;
+        nameTag.sizeDelta = item.nameTagSize;
+        nameTag.localPosition = new Vector2 (0, 0);
     }
 }
