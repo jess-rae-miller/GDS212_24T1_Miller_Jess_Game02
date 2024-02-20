@@ -9,6 +9,7 @@ public class EnemyLazer : MonoBehaviour
     public GameObject player;
     private Rigidbody2D rb;
     public float force;
+    private float timer;
 
     void Start()
     {
@@ -21,5 +22,21 @@ public class EnemyLazer : MonoBehaviour
         float rotate = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rotate + 90);
     }
+    private void Update()
+    {
+        timer += Time.deltaTime;
 
+        if(timer > 10)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

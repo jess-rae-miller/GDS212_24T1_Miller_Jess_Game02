@@ -10,15 +10,29 @@ public class EnemyShooting : MonoBehaviour
     public Transform lazerPos;
 
     public float timer;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        if (timer > 2)
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        Debug.Log(distance);
+
+        if (distance < 5)
         {
-            timer = 0;
-            Shoot();
+            timer += Time.deltaTime;
+
+            if (timer > 0.5)
+            {
+                timer = 0;
+                Shoot();
+            }
         }
     }
 

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 26987327}
   - component: {fileID: 26987326}
   m_Layer: 5
-  m_Name: GunImage
+  m_Name: CodesImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 300287599}
   - component: {fileID: 300287598}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: Codes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   objectsToRemove:
   - {fileID: 300287597}
   - {fileID: 26987324}
-  objectName: Gun
+  objectName: Codes
   nameTagSize: {x: 3, y: 0.65}
   messageHint: 
   hintBoxSize: {x: 4, y: 0.65}
@@ -1150,7 +1150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 692671379}
   m_Layer: 0
-  m_Name: GunGTP
+  m_Name: CodesGTP
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1453,6 +1453,7 @@ Transform:
   - {fileID: 218036506}
   - {fileID: 300287600}
   - {fileID: 195334285}
+  - {fileID: 1782879012}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129952603
@@ -1570,7 +1571,7 @@ GameObject:
   - component: {fileID: 1161612928}
   - component: {fileID: 1161612927}
   m_Layer: 5
-  m_Name: GunText
+  m_Name: CodesText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1615,7 +1616,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gun
+  m_text: Codes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80faaee25807b3f4ba9abb121aa318db, type: 2}
   m_sharedMaterial: {fileID: 7635600808768563427, guid: 80faaee25807b3f4ba9abb121aa318db, type: 2}
@@ -1910,6 +1911,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599132848}
   m_CullTransparentMesh: 1
+--- !u!4 &1782879012 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
+  m_PrefabInstance: {fileID: 4528491397567620676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1783720730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,7 +2135,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 951721498}
     m_Modifications:
     - target: {fileID: 1214930265519824314, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_Name
@@ -2141,11 +2147,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.36
+      value: -4.2499995
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.34
+      value: -0.15999985
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2157,15 +2163,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5403398915249797554, guid: ca499a2b903b50b42a87f07feb480972, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2192,4 +2198,3 @@ SceneRoots:
   - {fileID: 1477847183}
   - {fileID: 495558271}
   - {fileID: 951721498}
-  - {fileID: 4528491397567620676}
