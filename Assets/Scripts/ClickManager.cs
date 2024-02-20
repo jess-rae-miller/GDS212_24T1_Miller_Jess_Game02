@@ -13,43 +13,66 @@ public class ClickManager : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
     }
+
     public void GoToItem(ItemData item)
     {
-        StartCoroutine(gameManager.MoveToPoint(player, item.goToPoint.position));
-        player.GetComponent<SpriteAnimator>().PlayAnimation(gameManager.playerAnimations[1]);
-        playerWalking = true;
-        TryGettingItem(item);
+        // Hide hint box when moving towards an item
+        gameManager.UpdateHintBox(null, false);
 
+        // Play walking animation
+        player.GetComponent<SpriteAnimator>().PlayAnimation(gameManager.playerAnimations[1]);
+
+        // Set playerWalking flag to true
+        playerWalking = true;
+
+        // Start coroutine to move player towards the item's position
+        StartCoroutine(gameManager.MoveToPoint(player, item.goToPoint.position));
+
+        // Try to get the item
+        TryGettingItem(item);
     }
 
     private void TryGettingItem(ItemData item)
     {
+        // Check if the required item is already collected or if no item is required
         bool canGetItem = item.requiredItemID == -1 || GameManager.collectedItems.Contains(item.requiredItemID);
+
+        // If the item can be obtained, add it to the collected items list
         if (canGetItem)
         {
             GameManager.collectedItems.Add(item.itemID);
         }
+
+        // Start coroutine to update scene after the action
         StartCoroutine(UpdateSceneAfterAction(item, canGetItem));
     }
 
     private IEnumerator UpdateSceneAfterAction(ItemData item, bool canGetItem)
     {
+        // Wait until player stops walking
         while (playerWalking)
         {
             yield return new WaitForSeconds(0.05f);
         }
 
+        // If the item can be obtained, remove specified objects
         if (canGetItem)
         {
             foreach (GameObject g in item.objectsToRemove)
-
-            Destroy(g);
-            Debug.Log("item collected");
+            {
+                Destroy(g);
+            }
         }
+        else
+        {
+            // Show hint box if the item cannot be obtained
+            gameManager.UpdateHintBox(item, player.GetComponentInChildren<SpriteRenderer>().flipX);
 
+            // Stop walking animation
             player.GetComponent<SpriteAnimator>().PlayAnimation(null);
 
             yield return null;
+        }
     }
 }
 

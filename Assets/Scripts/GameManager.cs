@@ -6,10 +6,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    //Tutorial by PawelMakesGames on yt
+
     static float moveSpeed = 3.5f, moveAccuracy = 0.15f;
     public static List<int> collectedItems = new List<int>();
     public AnimationData[] playerAnimations;
-    public RectTransform nameTag;
+    public RectTransform nameTag, hintBox;
 
     public IEnumerator MoveToPoint(Transform myObject, Vector2 point)
     {
@@ -30,10 +32,25 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
 
-    public void UpdateNameTag(ItemData item)
+    public void UpdateHintBox(ItemData item, bool playerFlipped)
     {
-        nameTag.GetComponentInChildren<TextMeshProUGUI>().text = item.objectName;
-        nameTag.sizeDelta = item.nameTagSize;
-        nameTag.localPosition = new Vector2 (0, 0);
+        if(item == null)
+        {
+            hintBox.gameObject.SetActive(false);
+            return;
+        }
+
+        hintBox.gameObject.SetActive(true);
+
+        hintBox.GetComponentInChildren<TextMeshProUGUI>().text = item.messageHint;
+        hintBox.sizeDelta = item.hintBoxSize;
+
+        if(playerFlipped)
+        hintBox.parent.localPosition = new Vector2 (0, 2);
+
+        else
+        {
+            hintBox.parent.localPosition = new Vector2 (0, 2);
+        }
     }
 }
