@@ -36,7 +36,6 @@ public class EnemyLazer : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided");
             Destroy(gameObject);
         }
     }

@@ -22,9 +22,8 @@ public class EnemyShooting : MonoBehaviour
         timer += Time.deltaTime;
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        Debug.Log(distance);
 
-        if (distance < 3)
+        if (distance < 10)
         {
             timer += Time.deltaTime;
 

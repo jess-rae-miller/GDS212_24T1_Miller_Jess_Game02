@@ -67,12 +67,12 @@ public class ClickManager : MonoBehaviour
         {
             // Show hint box if the item cannot be obtained
             gameManager.UpdateHintBox(item, player.GetComponentInChildren<SpriteRenderer>().flipX);
+            gameManager.CheckSpecialConditions(item);
 
+        }
             // Stop walking animation
             player.GetComponent<SpriteAnimator>().PlayAnimation(null);
 
             yield return null;
-        }
     }
 }
-
