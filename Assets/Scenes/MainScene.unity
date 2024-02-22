@@ -506,7 +506,6 @@ GameObject:
   - component: {fileID: 218036506}
   - component: {fileID: 218036505}
   - component: {fileID: 218036507}
-  - component: {fileID: 218036508}
   m_Layer: 0
   m_Name: Terminal
   m_TagString: Untagged
@@ -594,22 +593,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63b9f0add814f948afac74a68fa0c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  codes: {fileID: 300287597}
-  unlockedObject: {fileID: 1471067171}
-  turretToDeactivate: {fileID: 0}
---- !u!114 &218036508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218036503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7cfc63ddd94514ba08f34b97c905c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   goToPoint: {fileID: 326295948}
   itemID: 2
   requiredItemID: 1
@@ -618,8 +601,11 @@ MonoBehaviour:
   nameTagSize: {x: 3, y: 0.65}
   objectsToRemove: []
   objectsToAdd: []
-  messageHint: I need a new code..
-  hintBoxSize: {x: 4, y: 0.65}
+  messageHint: I need to find an overriding code
+  hintBoxSize: {x: 4, y: 1.5}
+  isUnlocked: 0
+  codes: {fileID: 300287597}
+  unlockedObject: {fileID: 1471067171}
 --- !u!1 &232610199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,7 +1097,7 @@ MonoBehaviour:
           m_MethodName: GoToItem
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1509473736}
+            m_ObjectArgument: {fileID: 1509473735}
             m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1139,7 +1125,7 @@ MonoBehaviour:
           m_MethodName: UpdateNameTag
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 1509473736}
+            m_ObjectArgument: {fileID: 1509473735}
             m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -1246,7 +1232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &340939218
 Transform:
   m_ObjectHideFlags: 0
@@ -2920,7 +2906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &951721498
 Transform:
   m_ObjectHideFlags: 0
@@ -4604,10 +4590,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63b9f0add814f948afac74a68fa0c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goToPoint: {fileID: 0}
+  itemID: 0
+  requiredItemID: 0
+  requiresItem: 0
+  objectName: 
+  nameTagSize: {x: 3, y: 0.65}
+  objectsToRemove: []
+  objectsToAdd: []
+  messageHint: 
+  hintBoxSize: {x: 4, y: 0.65}
   isUnlocked: 0
   codes: {fileID: 1291029310}
   unlockedObject: {fileID: 1319241584}
-  turretToDeactivate: {fileID: 968484649}
 --- !u!1 &1366370451
 GameObject:
   m_ObjectHideFlags: 0
@@ -4860,7 +4855,6 @@ GameObject:
   - component: {fileID: 1509473732}
   - component: {fileID: 1509473734}
   - component: {fileID: 1509473735}
-  - component: {fileID: 1509473736}
   m_Layer: 0
   m_Name: Terminal2
   m_TagString: Untagged
@@ -4948,32 +4942,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63b9f0add814f948afac74a68fa0c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  codes: {fileID: 284337903}
-  unlockedObject: {fileID: 384012866}
-  turretToDeactivate: {fileID: 0}
---- !u!114 &1509473736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509473731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7cfc63ddd94514ba08f34b97c905c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   goToPoint: {fileID: 1738887049}
-  itemID: 0
-  requiredItemID: 0
+  itemID: 9
+  requiredItemID: 8
   requiresItem: 0
   objectName: Terminal
   nameTagSize: {x: 3, y: 0.65}
   objectsToRemove: []
   objectsToAdd: []
   messageHint: Someone may have copied the password
-  hintBoxSize: {x: 4, y: 0.65}
+  hintBoxSize: {x: 5, y: 1.5}
+  isUnlocked: 0
+  codes: {fileID: 284337903}
+  unlockedObject: {fileID: 384012866}
 --- !u!1 &1659319940
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,7 +4973,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1659319941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5265,7 +5246,7 @@ MonoBehaviour:
           m_MethodName: GoToItem
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 218036508}
+            m_ObjectArgument: {fileID: 218036507}
             m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -5293,7 +5274,7 @@ MonoBehaviour:
           m_MethodName: UpdateNameTag
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 218036508}
+            m_ObjectArgument: {fileID: 218036507}
             m_ObjectArgumentAssemblyTypeName: ItemData, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
