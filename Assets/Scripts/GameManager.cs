@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator MoveToPoint(Transform myObject, Vector2 point)
     {
         Vector2 positionDifference = point - (Vector2)myObject.position;
-       
+
         if (myObject.GetComponentInChildren<SpriteRenderer>() && positionDifference.x != 0)
         {
             myObject.GetComponentInChildren<SpriteRenderer>().flipX = positionDifference.x < 0;
@@ -45,6 +45,17 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<ClickManager>().playerWalking = false;
         }
         yield return null;
+    }
+
+    public GameObject GetPlayerObject()
+    {
+        return GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public void ResetPlayerPosition()
+    {
+        int activeSceneIndex = activeLocalScene;
+        FindObjectOfType<ClickManager>().player.position = playerStartPositions[activeSceneIndex].position;
     }
 
     public void UpdateNameTag(ItemData item)
@@ -86,6 +97,10 @@ public class GameManager : MonoBehaviour
 
             case -12:
                 StartCoroutine(ChangeScene(2, 0));
+                break;
+
+            case -13:
+                StartCoroutine(ChangeScene(3, 0));
                 break;
 
             case -1:

@@ -19,6 +19,13 @@ public class ClickManager : MonoBehaviour
         // Hide hint box when moving towards an item
         gameManager.UpdateHintBox(null, false);
 
+        // Check if interaction with this item requires another item to be collected
+        if (item.requiresItem && !GameManager.collectedItems.Contains(item.requiredItemID))
+        {
+            Debug.Log("You need to collect a specific item first.");
+            return;
+        }
+
         // Play walking animation
         player.GetComponent<SpriteAnimator>().PlayAnimation(gameManager.playerAnimations[1]);
 
@@ -61,6 +68,10 @@ public class ClickManager : MonoBehaviour
             foreach (GameObject g in item.objectsToRemove)
             {
                 Destroy(g);
+            }
+            foreach (GameObject g in item.objectsToAdd )
+            {
+                g.SetActive(true);
             }
         }
         else
